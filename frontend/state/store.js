@@ -1,24 +1,17 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
-
 const orderSlice = createSlice({
   name: 'orders',
   initialState: {
     list: [
-      {
-        id: 1,
-        fullName: 'Sigourney Weaver',
-        size: 'S',
-        toppings: ['Pepperoni', 'Mushrooms'], 
-      },
-    ],
+      { fullName: 'Sigourney Weaver', size: 'S', toppings: ['pepperoni', 'mushrooms'] }
+    ]
   },
   reducers: {
     setOrders: (state, action) => { state.list = action.payload; },
     addOrder: (state, action) => { state.list.push(action.payload); },
   },
 });
-
 
 const filterSlice = createSlice({
   name: 'filter',
@@ -27,7 +20,6 @@ const filterSlice = createSlice({
     setFilter: (state, action) => action.payload,
   },
 });
-
 
 const formSlice = createSlice({
   name: 'form',
@@ -59,7 +51,6 @@ const formSlice = createSlice({
   },
 });
 
-
 export const {
   setOrders,
   addOrder,
@@ -72,8 +63,7 @@ export const {
   resetForm,
 } = formSlice.actions;
 
-
-export const resetStore = () => configureStore({
+export const store = configureStore({
   reducer: {
     orders: orderSlice.reducer,
     filter: filterSlice.reducer,
@@ -82,4 +72,4 @@ export const resetStore = () => configureStore({
 });
 
 
-export const store = resetStore();
+export const resetStore = () => store;
