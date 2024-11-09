@@ -50,6 +50,7 @@ const formSlice = createSlice({
   },
 });
 
+
 export const {
   setOrders,
   addOrder,
@@ -62,10 +63,14 @@ export const {
   resetForm,
 } = formSlice.actions;
 
-export const store = configureStore({
+
+export const resetStore = () => configureStore({
   reducer: {
     orders: orderSlice.reducer,
     filter: filterSlice.reducer,
     form: formSlice.reducer,
   },
 });
+
+
+export const store = resetStore();

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFormValue, setPending, setError, resetForm, addOrder } from '../state/store'; // Updated import path
+import { setFormValue, setPending, setError, resetForm, addOrder } from '../state/store';
 
 export default function PizzaForm() {
   const dispatch = useDispatch();
